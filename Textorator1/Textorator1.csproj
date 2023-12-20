@@ -7,4 +7,32 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\bold.png" />
+    <None Remove="Assets\center.png" />
+    <None Remove="Assets\grow.png" />
+    <None Remove="Assets\italic.png" />
+    <None Remove="Assets\justify.png" />
+    <None Remove="Assets\left.png" />
+    <None Remove="Assets\open.png" />
+    <None Remove="Assets\right.png" />
+    <None Remove="Assets\save.png" />
+    <None Remove="Assets\shrink.png" />
+    <None Remove="Assets\underline.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\bold.png" />
+    <Resource Include="Assets\center.png" />
+    <Resource Include="Assets\grow.png" />
+    <Resource Include="Assets\italic.png" />
+    <Resource Include="Assets\justify.png" />
+    <Resource Include="Assets\left.png" />
+    <Resource Include="Assets\open.png" />
+    <Resource Include="Assets\right.png" />
+    <Resource Include="Assets\save.png" />
+    <Resource Include="Assets\shrink.png" />
+    <Resource Include="Assets\underline.png" />
+  </ItemGroup>
+
 </Project>

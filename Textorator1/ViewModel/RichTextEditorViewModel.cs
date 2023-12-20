@@ -55,30 +55,23 @@ namespace Textorator1.ViewModel
                 return _saveCommand ?? (_saveCommand = new RelayCommand(param => Save_Executed()));
             }
         }
-        public RelayCommand CenterCommand
-        {
-            get
-            {
-                return new RelayCommand(param => _centerCommand());
-            }
-        }
+        public RelayCommand LeftCommand => new RelayCommand(param => EditingCommands.AlignLeft.Execute(null, docBox));
 
-        private void _centerCommand()
-        {
-            EditingCommands.AlignCenter.Execute(null, docBox);
-        }
-        public RelayCommand ItalicCommand
-        {
-            get
-            {
-                return new RelayCommand(param => _italic());
-            }
-        }
+        public RelayCommand CenterCommand => new RelayCommand(param => EditingCommands.AlignCenter.Execute(null, docBox));
 
-        private void _italic()
-        {
-            EditingCommands.ToggleItalic.Execute(null, docBox);
-        }
+        public RelayCommand RightCommand => new RelayCommand(param => EditingCommands.AlignRight.Execute(null, docBox));
+
+        public RelayCommand JustifyCommand => new RelayCommand(param => EditingCommands.AlignJustify.Execute(null, docBox));
+
+        public RelayCommand ItalicCommand => new RelayCommand(param => EditingCommands.ToggleItalic.Execute(null, docBox));
+
+        public RelayCommand BoldCommand => new RelayCommand(param => EditingCommands.ToggleBold.Execute(null, docBox));
+
+        public RelayCommand UnderlineCommand => new RelayCommand(param => EditingCommands.ToggleUnderline.Execute(null, docBox));
+
+        public RelayCommand GrowCommand => new RelayCommand(param => EditingCommands.IncreaseFontSize.Execute(null, docBox));
+
+        public RelayCommand ShrinkCommand => new RelayCommand(param => EditingCommands.DecreaseFontSize.Execute(null, docBox));
 
         private void Open_Executed()
         {
@@ -123,20 +116,6 @@ namespace Textorator1.ViewModel
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-
-        private string textInput;
-        public string TextInput
-        {
-            get
-            {
-                return textInput;
-            }
-            set
-            {
-                textInput = value;
-                OnPropertyChanged(textInput);
-            }
         }
 
     }

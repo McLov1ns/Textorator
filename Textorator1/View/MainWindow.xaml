@@ -5,41 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Textorator1.ViewModel"
         mc:Ignorable="d"
-        Title="RichTextEditorSample" Height="300" Width="400">
+        Title="RichTextEditor" MinHeight="300" MinWidth="500">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}" x:Key="ImageStyle">
+            <Setter Property="Width" Value="30"></Setter>
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!-- Меню "Файл" -->
-
         <Menu>
-            <MenuItem Header="Файл">
-                <MenuItem Header="Открыть" Command="{Binding OpenCommand}" />
-                <MenuItem Header="Сохранить" Command="{Binding SaveCommand}" />
-            </MenuItem>
-
-            <MenuItem Header="Редактировать">
-                <MenuItem Header="Найти" Command="{Binding FindCommand}" />
-                <MenuItem Header="Заменить" Command="{Binding ReplaceCommand}" />
-            </MenuItem>
-
-            <MenuItem Header="Шрифт">
-                <ComboBox ItemsSource="{Binding Fonts}" SelectedItem="{Binding SelectedFont}" />
-                <Slider Minimum="8" Maximum="72" Value="{Binding FontSize}" />
-                <MenuItem Header="Цвет">
-                    <Button Content="Выбрать цвет" Command="{Binding ChooseColorCommand}" />
-                </MenuItem>
-                <MenuItem Header="Жирность">
-                    <ToggleButton Content="Bold" IsChecked="{Binding IsBold}" />
-
-                </MenuItem>
-                <MenuItem Header="Курсив">
-                    <Button Content="Italic" Command="{Binding ItalicCommand}" />
-                </MenuItem>
-            </MenuItem>
-            <Button Content="По центру" Command="{Binding CenterCommand}" ToolTip="Align Center"/>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding OpenCommand}" ToolTip="Открыть" >
+                <Image Source="/Assets/open.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding SaveCommand}" ToolTip="Сохранить">
+                <Image Source="/Assets/save.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}"  Command="{Binding LeftCommand}" ToolTip="По левому краю">
+                <Image Source="/Assets/left.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}"  Command="{Binding CenterCommand}" ToolTip="По центру">
+                <Image Source="/Assets/center.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}"  Command="{Binding RightCommand}" ToolTip="По правому краю">
+                <Image Source="/Assets/right.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding JustifyCommand}" ToolTip="По ширине" >
+                <Image Source="/Assets/justify.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding ItalicCommand}" ToolTip="Курсив" >
+                <Image Source="/Assets/italic.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding BoldCommand}" ToolTip="Жирный" >
+                <Image Source="/Assets/bold.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding UnderlineCommand}" ToolTip="Подчеркивание" >
+                <Image Source="/Assets/underline.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding GrowCommand}" ToolTip="Увеличить шрифт" >
+                <Image Source="/Assets/grow.png" />
+            </Button>
+            <Button Style="{StaticResource ImageStyle}" Command="{Binding ShrinkCommand}" ToolTip="Уменьшить шрифт" >
+                <Image Source="/Assets/shrink.png" />
+            </Button>
         </Menu>
         <ContentControl Content="{Binding docBox}" Grid.Row="1"/>
     </Grid>
